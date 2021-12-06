@@ -19,19 +19,19 @@ public class LoanCalculatorTest {
         // when
         float result = loanCalculator.getMonthPaySum(loanSum, period, prc);
         // then
-        Assertions.assertEquals(1740, result);
+        Assertions.assertEquals(1740, Math.round(result));
     }
 
     @Test
-    public void getMonthPaySum_PRC_0_Throws_Exception() {
+    public void getMonthPaySum_PRC_0() {
         // given
         int loanSum = 10000;
         int prc = 0;
         int period = 6;
-        // expect
-        Assertions.assertThrows(ArithmeticException.class, ()->{
-            loanCalculator.getMonthPaySum(loanSum, period, prc);
-        });
+        // when
+        float result = loanCalculator.getMonthPaySum(loanSum, period, prc);
+        // then
+        Assertions.assertEquals(0, result);
     }
 
     @Test
@@ -40,10 +40,10 @@ public class LoanCalculatorTest {
         int loanSum = 10000;
         int prc = 15;
         int period = 0;
-        // expect
-        Assertions.assertThrows(ArithmeticException.class, ()->{
-            loanCalculator.getMonthPaySum(loanSum, period, prc);
-        });
+        // when
+        float result = loanCalculator.getMonthPaySum(loanSum, period, prc);
+        // then
+        Assertions.assertEquals(0, result);
     }
 
     @Test
@@ -55,7 +55,7 @@ public class LoanCalculatorTest {
         // when
         float result = loanCalculator.getOverpaymentSum(loanSum, period, prc);
         // then
-        Assertions.assertEquals(440, result);
+        Assertions.assertEquals(442, Math.round(result));
     }
 
     @Test
@@ -67,6 +67,6 @@ public class LoanCalculatorTest {
         // when
         float result = loanCalculator.getFullLoanSum(loanSum, period, prc);
         // then
-        Assertions.assertEquals(1440, result);
+        Assertions.assertEquals(10442, Math.round(result));
     }
 }
