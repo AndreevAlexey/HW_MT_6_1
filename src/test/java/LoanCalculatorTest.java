@@ -35,7 +35,7 @@ public class LoanCalculatorTest {
     }
 
     @Test
-    public void getMonthPaySum_PERIOD_0_Throws_Exception() {
+    public void getMonthPaySum_PERIOD_0() {
         // given
         int loanSum = 10000;
         int prc = 15;

@@ -36,6 +36,7 @@ public class LoanCalculator {
     // расчет суммы ежемесячного платежа
     public float getMonthPaySum(int loanSum, int period, int prc) {
         float result = 0.00F;
+        /*
         float cm = (float) prc/(12*100);
         if(loanSum == 0 || period == 0 || prc == 0) {
             return 0.00F;
@@ -45,6 +46,8 @@ public class LoanCalculator {
         } catch (ArithmeticException exp) {
             exp.printStackTrace();
         }
+
+         */
         return result;
     }
     // расчет суммы ежемесячного платежа
@@ -61,11 +64,15 @@ public class LoanCalculator {
     }
     // Рассчет переплаты за весь период
     public float getOverpaymentSum(int loanSum, int period, int prc) {
+        /*
         float result = getFullLoanSum(loanSum, period, prc);
         if (result == 0) {
             return result;
         }
         return result - loanSum;
+
+         */
+        return 0.00F;
     }
     // Рассчет переплаты за весь период
     public float getOverpaymentSum() {
